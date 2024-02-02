@@ -1,13 +1,11 @@
-FROM datalust/seq
+# Usar la imagen datalust/seq:latest como base
+FROM datalust/seq:latest
 
-# Copiar el script de inicio
-COPY start.sh /start.sh
+# Establecer variables de entorno necesarias
+ENV ACCEPT_EULA=Y
 
-# Dar permisos de ejecución al script
-RUN chmod +x /start.sh
+# Exponer el puerto para la interfaz web y la ingesta de registros
+EXPOSE 80
+EXPOSE 5431
 
-# Establecer la variable de entorno (deberías establecer tu propia contraseña aquí)
-ENV SEQ_ADMIN_PASSWORD="pepe"
-
-# Ejecutar el script de inicio
-CMD ["/start.sh"]
+# El comando por defecto para iniciar Seq, no es necesario especificarlo si se usa el comando por defecto de la imagen base
