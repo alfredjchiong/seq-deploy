@@ -12,6 +12,6 @@ docker run \
   -e SEQ_API_CANONICALURI=https://seq.example.com \
   -e SEQ_FIRSTRUN_ADMINPASSWORDHASH="$PH" \
   -v /path/to/seq/data:/data \
-  -p 80:80 \
+  -p 8080:80 \
   -p 5341:5341 \
   datalust/seq
